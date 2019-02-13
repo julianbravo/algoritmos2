@@ -1,0 +1,134 @@
+// Polinomio no estructurado.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	const int N=20;
+	const int M=25;
+	double x_polinomio[N];
+	double y_polinomio[M];
+	double z_polinomio[N+M];
+	int x_tamano;
+	int y_tamano;
+	int z_tamano;
+	int i,j,k;
+	
+	cout<<"Tamano polinomio X:";
+	cin>>x_tamano;
+	i=0;
+	while(i<x_tamano)
+		{
+		cout<<"X["<<i<<"]:";
+		cin>>x_polinomio[i];
+		i++;
+		}
+
+		cout<<"Tamano polinomio Y:";
+		cin>>y_tamano;
+		j=0;
+
+	while(j<y_tamano)
+		{
+		cout<<"Y["<<j<<"]:";
+		cin>>y_polinomio[j];
+		j++;
+		}
+
+	int opcion;
+			
+	
+	cout<<"0: salir"<<endl;
+	cout<<"1: sumar"<<endl;
+	cout<<"2: restar"<<endl;
+	cout<<"3: multiplicar"<<endl;
+	cout<<"4: dividir"<<endl;
+	cout<<"5: integrar"<<endl;
+	cout<<"6: derivar"<<endl;
+	cout<<"7: multiplicar escalar"<<endl;
+
+	while((opcion>0) && (opcion<0))
+		{	
+			if(opcion==1)
+				{	i=0;
+					j=0;
+					k=0;
+
+					while((i<x_tamano) && (j<y_tamano))
+						{
+							z_polinomio[k]=x_polinomio[i]+y_polinomio[j];
+							i++;
+							j++;
+							k++;
+									
+						}
+					while(i<x_tamano)
+						{
+							z_polinomio[k]=x_polinomio[i];
+							i++;
+							k++;
+						}
+					while(j<y_tamano)
+						{
+							z_polinomio[k]=y_polinomio[j];
+							j++;
+							k++;
+						}
+				
+				}
+
+			if(opcion==2)
+				{}
+
+			if(opcion==3)
+				{	for (i=0;i<(x_tamano+y_tamano);i++)
+					z_polinomio[i]=0;
+						
+					i=0;
+					while(i<x_tamano)
+						{
+							j=0;
+							while(j<y_tamano)
+								{
+									z_polinomio[i+j]=x_polinomio[i]*y_polinomio[j]+z_polinomio[i+j];
+									j++;
+								}
+							i++;
+						}
+					z_tamano=i+j-1;
+					 i=0;
+					 while(i<z_tamano)
+						{
+							cout<<"POLINOMIO_Z["<<i<<"]:"<<z_polinomio[i]<<endl;
+							i++;
+						}
+				} // fin del if multiplicar
+			if(opcion==4)
+				{}
+			if(opcion==5)
+				{}
+			if(opcion==6)
+				{}
+			if(opcion==7)
+				{}
+	}
+	
+	cout<<"0: salir"<<endl;
+	cout<<"1: sumar"<<endl;
+	cout<<"2: restar"<<endl;
+	cout<<"3: multiplicar"<<endl;
+	cout<<"4: dividir"<<endl;
+	cout<<"5: integrar"<<endl;
+	cout<<"6: derivar"<<endl;
+	cout<<"7: multiplicar escalar"<<endl;
+
+
+
+
+	return 0;
+}
